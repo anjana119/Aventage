@@ -1,0 +1,10 @@
+{
+    "Api_Url": "www.martha_restaurant.com/",
+    "Api_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSldUIFJ1bGVzISIsImlhdCI6MTQ1OTQ0ODExOSwiZXhwIjoxNDU5NDU0NTE5fQ.-yIVBD5b73C75osbmwwshQNRC7frWUYrqaTjTpza2y4",
+
+    "Get_Main_Dishes": "dish/main_dish",
+    "Get_Side_Dishes": "dish/side_dish",
+    "Get_dessert": "dish/dessert",
+
+    "Confirm_Order_Details": "confirm/order"
+}

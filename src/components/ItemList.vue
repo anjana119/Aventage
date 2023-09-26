@@ -37,8 +37,11 @@
 <script>
 import DishesCardComp from './DishesCardComp.vue'
 import OrderInfoCardComp from './OrderInfoCardComp.vue'
+import APIGetDishes from '../mixins/APIGetDishes'
+import data from '../data/Config_Dishes_Details.json'
 export default {
   name: 'Item List',
+  mixins: [APIGetDishes],
   components: {
     DishesCardComp,
     OrderInfoCardComp
@@ -46,78 +49,38 @@ export default {
   data () {
     return {
       selectedDish: {},
-      mainDishesArr: [
-        {
-          id: '1',
-          dishType: 'Main',
-          title: 'Rice',
-          avatar: 'https://thumbs.dreamstime.com/b/delicious-spicy-chicken-fried-rice-homemade-cast-iron-wok-94297571.jpg',
-          price: 100
-        },
-        {
-          id: '2',
-          dishType: 'Main',
-          title: 'Rotty',
-          avatar: 'https://img.freepik.com/premium-photo/indian-food-khakra_57665-10570.jpg',
-          price: 20
-        },
-        {
-          id: '3',
-          dishType: 'Main',
-          title: 'Noodles',
-          avatar: 'https://img.freepik.com/premium-photo/perfect-delicious-look-yakisoba-fried-noodles_890183-6480.jpg?w=1060',
-          price: 150
-        }
-      ],
-      sideDishesArr: [
-        {
-          id: '1',
-          dishType: 'Side',
-          title: 'Wadai',
-          avatar: 'https://thumbs.dreamstime.com/z/sambar-vada-south-indian-food-wadai-sambhar-chutney-wooden-background-273542925.jpg?w=992',
-          price: 45
-        },
-        {
-          id: '2',
-          dishType: 'Side',
-          title: 'Dhal curry',
-          avatar: 'https://www.wearesovegan.com/wp-content/uploads/2021/11/vegansimpledhalrecipes1.jpg',
-          price: 75
-        },
-        {
-          id: '3',
-          dishType: 'Side',
-          title: 'FIsh curry',
-          avatar: 'https://static.toiimg.com/thumb/58985156.cms?width=1200&height=900',
-          price: 120
-        }
-      ],
-      dessertsArr: [
-        {
-          id: '1',
-          dishType: 'Desserts',
-          title: 'Watalappam',
-          avatar: 'https://recipe30.com/wp-content/uploads/2018/10/Watalappam.jpg',
-          price: 40
-        },
-        {
-          id: '2',
-          dishType: 'Desserts',
-          title: 'Jelly',
-          avatar: 'https://t3.ftcdn.net/jpg/02/65/44/64/360_F_265446412_EuefgWWRqi3QOrJMEy8fuZMFMtza5AgA.jpg',
-          price: 20
-        },
-        {
-          id: '3',
-          dishType: 'Desserts',
-          title: 'Pudding',
-          avatar: 'https://img.freepik.com/premium-photo/caramel-flan-with-caramel-sauce-top-isolated-white-background-illustration-images_796580-1365.jpg',
-          price: 25
-        }
-      ]
+      mainDishesArr: [],
+      sideDishesArr: [],
+      dessertsArr: []
     }
   },
+  created () {
+    this.getAllMainDishes()
+    this.getAllSideDishes()
+    this.getAllDesserts()
+  },
   methods: {
+    getAllMainDishes: async function () {
+      try {
+        this.mainDishesArr = await this.fetchMainDishes()
+      } catch (e) {
+        this.mainDishesArr = data.main
+      }
+    },
+    getAllSideDishes: async function () {
+      try {
+        this.sideDishesArr = await this.fetchSideDishes()
+      } catch (e) {
+        this.sideDishesArr = data.side
+      }
+    },
+    getAllDesserts: async function () {
+      try {
+        this.dessertsArr = await this.fetchDesserts()
+      } catch (e) {
+        this.dessertsArr = data.dessert
+      }
+    },
     selectedItem: async function (object) {
       this.selectedDish = object
     }

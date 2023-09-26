@@ -65,8 +65,10 @@
 
 <script>
 import TableComp from './TableComp.vue'
+import APIConfirmOrder from '../mixins/APIConfirmOrder'
 export default {
   name: 'Order Info Card Component',
+  mixins: [APIConfirmOrder],
   components: {
     TableComp
   },
@@ -78,6 +80,7 @@ export default {
   },
   data () {
     return {
+      items: [],
       showComp: 0,
       totPrice: 0,
       totQty: 0,
@@ -107,12 +110,14 @@ export default {
       this.arrLength = length
       length === 0 ? this.showComp = 0 : this.showComp = 1
     },
-    handleEmitConditionForProcessNext (con) {
+    handleEmitConditionForProcessNext (con, itemArr) {
       this.condition = con
+      this.items = itemArr
     },
     handleSubmitOrder: async function () {
       try {
-        console.log('done')
+        console.log(this.items)
+        await this.confirmOrder(this.items)
       } catch (e) {
         console.log(e)
       }

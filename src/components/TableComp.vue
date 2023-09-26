@@ -133,7 +133,7 @@ export default {
           }
         }
       }
-      this.$emit('handleEmitConditionForProcessNext', this.condition)
+      this.$emit('handleEmitConditionForProcessNext', this.condition, this.items)
     }
   }
 }
