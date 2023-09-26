@@ -4,21 +4,21 @@
             "id": "1",
             "dishType": "Main",
             "title": "Rice",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/ea0995dd-f4e2-96aa-41fd-f58a1b6043e2.png",
+            "avatar": "https://thumbs.dreamstime.com/b/delicious-spicy-chicken-fried-rice-homemade-cast-iron-wok-94297571.jpg",
             "price": 100
         },
         {
             "id": "2",
             "dishType": "Main",
             "title": "Rotty",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/eec6e9e9-7bda-5541-61a9-4deeecdbad30.png",
+            "avatar": "https://img.freepik.com/premium-photo/indian-food-khakra_57665-10570.jpg",
             "price": 20
         },
         {
             "id": "3",
             "dishType": "Main",
             "title": "Noodles",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/f1ea6e1b-5992-a4e8-673b-aa8f684cc293.png",
+            "avatar": "https://img.freepik.com/premium-photo/perfect-delicious-look-yakisoba-fried-noodles_890183-6480.jpg?w=1060",
             "price": 150
         }
     ],
@@ -27,21 +27,21 @@
             "id": "1",
             "dishType": "Side",
             "title": "Wadai",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/31f6aeca-f065-f338-b95d-4ff7ec2dcef3.png",
+            "avatar": "https://thumbs.dreamstime.com/z/sambar-vada-south-indian-food-wadai-sambhar-chutney-wooden-background-273542925.jpg?w=992",
             "price": 45
         },
         {
             "id": "2",
             "dishType": "Side",
             "title": "Dhal curry",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/ec129c0b-6f3f-b1a8-6873-5f2967520a04.png",
+            "avatar": "https://www.wearesovegan.com/wp-content/uploads/2021/11/vegansimpledhalrecipes1.jpg",
             "price": 75
         },
         {
             "id": "3",
             "dishType": "Side",
             "title": "FIsh curry",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/35cb1240-c25d-2eb7-0b51-deebe066f358.png",
+            "avatar": "https://static.toiimg.com/thumb/58985156.cms?width=1200&height=900",
             "price": 120
         }
     ],
@@ -57,14 +57,14 @@
             "id": "2",
             "dishType": "Desserts",
             "title": "Jelly",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/110d3c38-b1c7-d151-8d27-42abdbf1f1fd.png",
+            "avatar": "https://t3.ftcdn.net/jpg/02/65/44/64/360_F_265446412_EuefgWWRqi3QOrJMEy8fuZMFMtza5AgA.jpg",
             "price": 20
         },
         {
             "id": "3",
             "dishType": "Desserts",
             "title": "Pudding",
-            "avatar": "https://mcusercontent.com/6003ec7889e9bec09d681656c/images/298f9ccf-091a-349b-3c1a-123c6a468e83.png",
+            "avatar": "https://img.freepik.com/premium-photo/caramel-flan-with-caramel-sauce-top-isolated-white-background-illustration-images_796580-1365.jpg",
             "price": 25
         }
     ]

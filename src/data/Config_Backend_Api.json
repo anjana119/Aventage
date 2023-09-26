@@ -6,5 +6,11 @@
     "Get_Side_Dishes": "dish/side_dish",
     "Get_dessert": "dish/dessert",
 
-    "Confirm_Order_Details": "confirm/order"
+    "Confirm_Order_Details": "confirm/order",
+
+    "Get_Daily_Sales_Report": "reports/daily/sales",
+    "Get_Daily_Sales_Statics_Report": "reports/daily/sales/statics",
+    "Get_Famous_Main_Dish_Report": "reports/daily/famous/main_dish",
+    "Get_Famous_Side_Dish_Report": "reports/daily/famous/side_dish",
+    "Get_Suitable_Dishes_Report": "reports/daily/suitable/dishes"
 }

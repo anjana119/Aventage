@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="rightAlign">
+      <div>
         <b-dropdown id="dropdown-1" :text="selectedText" class="m-md-2" variant="warning">
           <b-dropdown-item
             :active="selectedText === 'Daily' ? true : false"
@@ -59,9 +59,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.rightAlign {
-
-}
-</style>

@@ -1,0 +1,41 @@
+{
+    "salesStatics": [
+        {
+            "no of total orders": 40,
+            "no of total items selled": 100,
+            "total amount (Rs.)": 10000,
+            "_rowVariant": "warning"
+        }
+    ],
+    "famousMainDishStatic": [
+        {
+            "dish": "Noodles",
+            "rate (%)": 48.8,
+            "_rowVariant": "warning"
+        }
+    ],
+    "famousSideDishStatic": [
+        {
+            "dish": "Fish",
+            "rate (%)": 39.4,
+            "_rowVariant": "warning"
+        }
+    ],
+    "suitableDishes": [
+        {
+            "side dish": "Fish Curry",
+            "main dish": "Rice",
+            "_rowVariant": "warning"
+        },
+        {
+            "side dish": "Dhal Curry",
+            "main dish": "Noodles",
+            "_rowVariant": "warning"
+        },
+        {
+            "side dish": "Wadai",
+            "main dish": "Rotty",
+            "_rowVariant": "warning"
+        }
+    ]
+}

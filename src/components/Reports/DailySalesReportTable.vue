@@ -17,27 +17,15 @@
 </template>
 
 <script>
+import APIReports from '../../mixins/APIReports'
+import data from '../../data/Config_Sales_Report_Details.json'
+import moment from 'moment'
 export default {
   name: 'Daily Sales Report Table',
+  mixins: [APIReports],
   data () {
     return {
-      items: [
-        {
-          order: 'Order 1',
-          date: '2023/09/23',
-          rice: 2,
-          rotty: 0,
-          noodles: 1,
-          wadai: 0,
-          dhalcurry: 2,
-          fishcurry: 1,
-          watalappam: 0,
-          jelly: 0,
-          pudding: 2,
-          qty: 8,
-          price: 550
-        }
-      ],
+      items: [],
       fields: [
         'order',
         { key: 'date', label: 'Date' },
@@ -53,6 +41,22 @@ export default {
         { key: 'qty', label: 'Total Items' },
         { key: 'price', label: 'Total Price (Rs.)' }
       ]
+    }
+  },
+  created () {
+    this.handleGetSalesReport()
+  },
+  methods: {
+    handleGetSalesReport: async function () {
+      try {
+        this.items = await this.getSalesReport()
+      } catch (e) {
+        this.items = data.salesReport
+        for (let x = 0; x < this.items.length; x++) {
+          this.items[x].date = new Date()
+          this.items[x].date = moment().format('MMMM Do YYYY')
+        }
+      }
     }
   }
 }

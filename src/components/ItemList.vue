@@ -55,9 +55,9 @@ export default {
     }
   },
   created () {
-    this.getAllMainDishes()
-    this.getAllSideDishes()
     this.getAllDesserts()
+    this.getAllSideDishes()
+    this.getAllMainDishes()
   },
   methods: {
     getAllMainDishes: async function () {

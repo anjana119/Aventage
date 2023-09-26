@@ -19,8 +19,11 @@
 
 <script>
 import Statics from './Statics.vue'
+import APIReports from '../../mixins/APIReports'
+import data from '../../data/Config_Sales_Statics_Details.json'
 export default {
   name: 'Other Static Tables',
+  mixins: [APIReports],
   components: {
     Statics
   },
@@ -34,17 +37,38 @@ export default {
         'side dish',
         'main dish'
       ],
-      itemArrMain: [
-        { 'dish': 'Rice', 'rate (%)': 38.8, _rowVariant: 'warning' }
-      ],
-      itemArrSide: [
-        { 'dish': 'Fish Curry', 'rate (%)': 62.6, _rowVariant: 'warning' }
-      ],
-      itemArrOther: [
-        { 'side dish': 'Fish', 'main dish': 'Rice', _rowVariant: 'warning' }
-      ]
+      itemArrMain: [],
+      itemArrSide: [],
+      itemArrOther: []
     }
   },
-  methods: {}
+  created () {
+    this.handleGetFamousMainDish()
+    this.handleGetFamousSideDish()
+    this.handleGetSuitableDish()
+  },
+  methods: {
+    handleGetFamousMainDish: async function () {
+      try {
+        this.itemArrMain = await this.getDailyFamousMainDish()
+      } catch (e) {
+        this.itemArrMain = data.famousMainDishStatic
+      }
+    },
+    handleGetFamousSideDish: async function () {
+      try {
+        this.itemArrSide = await this.getDailyFamousSideDish()
+      } catch (e) {
+        this.itemArrSide = data.famousSideDishStatic
+      }
+    },
+    handleGetSuitableDish: async function () {
+      try {
+        this.itemArrOther = await this.getDailySuitableDish()
+      } catch (e) {
+        this.itemArrOther = data.suitableDishes
+      }
+    }
+  }
 }
 </script>

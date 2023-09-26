@@ -116,7 +116,6 @@ export default {
     },
     handleSubmitOrder: async function () {
       try {
-        console.log(this.items)
         await this.confirmOrder(this.items)
       } catch (e) {
         console.log(e)

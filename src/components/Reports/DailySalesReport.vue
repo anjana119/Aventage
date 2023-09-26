@@ -13,17 +13,18 @@
 <script>
 import DailySalesReportTable from './DailySalesReportTable.vue'
 import Statics from './Statics.vue'
+import APIReports from '../../mixins/APIReports'
+import data from '../../data/Config_Sales_Statics_Details.json'
 export default {
   name: 'Daily Sales Report',
+  mixins: [APIReports],
   components: {
     DailySalesReportTable,
     Statics
   },
   data () {
     return {
-      itemArr: [
-        { 'no of total orders': 40, 'no of total items selled': 100, 'total amount (Rs.)': 10000, _rowVariant: 'warning' }
-      ],
+      itemArr: [],
       fieldSet: [
         'no of total orders',
         'no of total items selled',
@@ -31,7 +32,18 @@ export default {
       ]
     }
   },
-  methods: {}
+  created () {
+    this.handleGetStatics()
+  },
+  methods: {
+    handleGetStatics: async function () {
+      try {
+        this.itemArr = await this.getSalesStatics()
+      } catch (e) {
+        this.itemArr = data.salesStatics
+      }
+    }
+  }
 }
 </script>
 
