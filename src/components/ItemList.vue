@@ -6,29 +6,60 @@
           Main Dishes
         </h3>
         <b-row class="mb-5">
-          <b-col sm="12" md="4" lg="4" v-for="mainItem in mainDishesArr" :key="mainItem.id">
-            <DishesCardComp @selectedItem="selectedItem" :mainItem="mainItem" />
+          <b-col
+            sm="12"
+            md="4"
+            lg="4"
+            v-for="mainItem in mainDishesArr"
+            :key="mainItem.id"
+          >
+            <DishesCardComp
+              @selectedItem="selectedItem"
+              :mainItem="mainItem"
+            />
           </b-col>
         </b-row>
         <h3>
           Side Dishes
         </h3>
         <b-row class="mb-5">
-          <b-col sm="12" md="4" lg="4" v-for="sideItem in sideDishesArr" :key="sideItem.id">
-            <DishesCardComp @selectedItem="selectedItem" :sideItem="sideItem" />
+          <b-col
+            sm="12"
+            md="4"
+            lg="4"
+            v-for="sideItem in sideDishesArr"
+            :key="sideItem.id"
+          >
+            <DishesCardComp
+              @selectedItem="selectedItem"
+              :sideItem="sideItem"
+              :array="array"
+            />
           </b-col>
         </b-row>
         <h3>
           Desserts
         </h3>
         <b-row>
-          <b-col sm="12" md="4" lg="4" v-for="dessert in dessertsArr" :key="dessert.id">
-            <DishesCardComp @selectedItem="selectedItem" :dessert="dessert" />
+          <b-col
+            sm="12"
+            md="4"
+            lg="4"
+            v-for="dessert in dessertsArr"
+            :key="dessert.id"
+          >
+            <DishesCardComp
+              @selectedItem="selectedItem"
+              :dessert="dessert"
+            />
           </b-col>
         </b-row>
       </b-col>
       <b-col sm="6" md="4" lg="4">
-        <OrderInfoCardComp :selectedDish="selectedDish" />
+        <OrderInfoCardComp
+          :selectedDish="selectedDish"
+          @handleComponentIsValid="handleComponentIsValid"
+        />
       </b-col>
     </b-row>
   </div>
@@ -51,7 +82,8 @@ export default {
       selectedDish: {},
       mainDishesArr: [],
       sideDishesArr: [],
-      dessertsArr: []
+      dessertsArr: [],
+      array: []
     }
   },
   created () {
@@ -83,6 +115,9 @@ export default {
     },
     selectedItem: async function (object) {
       this.selectedDish = object
+    },
+    handleComponentIsValid (arr) {
+      this.array = arr
     }
   }
 }

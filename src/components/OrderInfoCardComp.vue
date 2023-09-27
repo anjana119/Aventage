@@ -103,6 +103,9 @@ export default {
       deep: true
     }
   },
+  created () {
+    this.$emit('handleComponentIsValid', this.items)
+  },
   methods: {
     handleTotalValues (qty, price, length) {
       this.totQty = qty
@@ -113,6 +116,7 @@ export default {
     handleEmitConditionForProcessNext (con, itemArr) {
       this.condition = con
       this.items = itemArr
+      this.$emit('handleComponentIsValid', this.items)
     },
     handleSubmitOrder: async function () {
       try {

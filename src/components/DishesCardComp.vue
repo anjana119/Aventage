@@ -17,6 +17,8 @@
         <b-button
           class="blockLevelBtn"
           variant="outline-warning"
+          :style="itemDetails.dishType === 'Side' ? disableBtn === true ? 'cursor: not-allowed;' : 'cursor: pointer;' : 'cursor: pointer;'"
+          :disabled="itemDetails.dishType === 'Side' ? disableBtn : false"
           v-on:click="handleAddItemsToOrder(itemDetails)"
         >
           Add To Order
@@ -42,10 +44,15 @@ export default {
     dessert: {
       type: Object,
       default: null
+    },
+    array: {
+      type: Array,
+      default: null
     }
   },
   data () {
     return {
+      disableBtn: true,
       itemDetails: {
         id: '',
         dishType: '',
@@ -81,6 +88,21 @@ export default {
         }
       },
       immediate: true,
+      deep: true
+    },
+    array: {
+      handler (arr) {
+        if (arr !== null && arr.length === 0) {
+          this.disableBtn = true
+          return this.disableBtn
+        } else {
+          for (let x = 0; x < arr.length; x++) {
+            arr[x].dish === 'Main' ? this.disableBtn = false : this.disableBtn = true
+          }
+          return this.disableBtn
+        }
+      },
+      immediate: false,
       deep: true
     }
   },
