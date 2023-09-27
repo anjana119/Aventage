@@ -20,6 +20,7 @@
           <TableComp
             @handleTotalValues="handleTotalValues"
             @handleEmitConditionForProcessNext="handleEmitConditionForProcessNext"
+            :clearTable="clearTable"
             :itemDetails="itemDetails"
           />
         </div>
@@ -85,6 +86,7 @@ export default {
       totPrice: 0,
       totQty: 0,
       condition: false,
+      clearTable: false,
       arrLength: 0,
       itemDetails: {}
     }
@@ -121,7 +123,27 @@ export default {
     handleSubmitOrder: async function () {
       try {
         await this.confirmOrder(this.items)
+        this.items = []
+        this.clearTable = true
+        this.totPrice = 0
+        this.totQty = 0
+        this.arrLength = 0
+        this.showComp = 0
+        this.$emit('handleComponentIsValid', this.items)
+        this.$toast.success('Successfully order placed!', 'Success',
+          {
+            position: 'topCenter'
+          }
+        )
+        setTimeout(function () {
+          location.reload()
+        }, 5000)
       } catch (e) {
+        this.$toast.danger('Could not placed the order!', 'Error',
+          {
+            position: 'topCenter'
+          }
+        )
         console.log(e)
       }
     }

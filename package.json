@@ -19,6 +19,7 @@
     "bootstrap-vue": "^2.23.1",
     "moment": "^2.29.4",
     "vue": "^2.7.14",
+    "vue-izitoast": "^1.2.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

@@ -21,6 +21,7 @@
 import Statics from './Statics.vue'
 import APIReports from '../../mixins/APIReports'
 import data from '../../data/Config_Sales_Statics_Details.json'
+import dataFields from '../../data/Config.json'
 export default {
   name: 'Other Static Tables',
   mixins: [APIReports],
@@ -29,14 +30,8 @@ export default {
   },
   data () {
     return {
-      fieldSet: [
-        'dish',
-        'rate (%)'
-      ],
-      fieldSetOther: [
-        'side dish',
-        'main dish'
-      ],
+      fieldSet: dataFields.field_Set,
+      fieldSetOther: dataFields.field_Set_Other,
       itemArrMain: [],
       itemArrSide: [],
       itemArrOther: []

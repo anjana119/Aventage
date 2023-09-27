@@ -5,6 +5,10 @@ import App from './App.vue'
 import router from './router'
 // import store from "./store";
 
+// VueIziToast
+import VueIziToast from 'vue-izitoast'
+import 'izitoast/dist/css/iziToast.css'
+
 // Bootstrap and BootstrapVue css files
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -12,6 +16,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 // boostrap grid system
 Vue.use(LayoutPlugin)
 Vue.component('b-container', BContainer)
+
+Vue.use(VueIziToast)
 
 Vue.config.productionTip = false
 

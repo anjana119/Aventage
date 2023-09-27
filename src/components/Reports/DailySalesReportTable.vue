@@ -32,6 +32,7 @@
 import Pagination from './Pagination.vue'
 import APIReports from '../../mixins/APIReports'
 import data from '../../data/Config_Sales_Report_Details.json'
+import dataFields from '../../data/Config.json'
 import moment from 'moment'
 export default {
   name: 'Daily Sales Report Table',
@@ -50,21 +51,7 @@ export default {
       perPage: 2,
       currentPage: 1,
       items: [],
-      fields: [
-        'order',
-        { key: 'date', label: 'Date' },
-        { key: 'rice', label: 'Rice' },
-        { key: 'rotty', label: 'Rotty' },
-        { key: 'noodles', label: 'Noodles' },
-        { key: 'wadai', label: 'Wadai' },
-        { key: 'dhalcurry', label: 'Dhal Curry' },
-        { key: 'fishcurry', label: 'Fish Curry' },
-        { key: 'watalappam', label: 'Watalappam' },
-        { key: 'jelly', label: 'Jelly' },
-        { key: 'pudding', label: 'Pudding' },
-        { key: 'qty', label: 'Total Items' },
-        { key: 'price', label: 'Total Price (Rs.)' }
-      ]
+      fields: dataFields.fields
     }
   },
   watch: {

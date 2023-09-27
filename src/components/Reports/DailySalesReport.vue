@@ -15,6 +15,7 @@ import DailySalesReportTable from './DailySalesReportTable.vue'
 import Statics from './Statics.vue'
 import APIReports from '../../mixins/APIReports'
 import data from '../../data/Config_Sales_Statics_Details.json'
+import dataFields from '../../data/Config.json'
 export default {
   name: 'Daily Sales Report',
   mixins: [APIReports],
@@ -32,11 +33,7 @@ export default {
     return {
       perPage: 2,
       itemArr: [],
-      fieldSet: [
-        'no of total orders',
-        'no of total items selled',
-        'total amount (Rs.)'
-      ]
+      fieldSet: dataFields.field_Set_Daily_Sales
     }
   },
   watch: {

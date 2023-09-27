@@ -42,5 +42,40 @@
             "text": 50,
             "condition": "filterPagination"
         }
+    ],
+    "table_Comp_Table_Fields": [
+        "avatar",
+        "title",
+        "qty",
+        "total",
+        "action"
+    ],
+    "field_Set": [
+        "dish",
+        "rate (%)"
+    ],
+    "field_Set_Other": [
+        "side dish",
+        "main dish"
+    ],
+    "fields": [
+        "order",
+        { "key": "date", "label": "Date" },
+        { "key": "rice", "label": "Rice" },
+        { "key": "rotty", "label": "Rotty" },
+        { "key": "noodles", "label": "Noodles" },
+        { "key": "wadai", "label": "Wadai" },
+        { "key": "dhalcurry", "label": "Dhal Curry" },
+        { "key": "fishcurry", "label": "Fish Curry" },
+        { "key": "watalappam", "label": "Watalappam" },
+        { "key": "jelly", "label": "Jelly" },
+        { "key": "pudding", "label": "Pudding" },
+        { "key": "qty", "label": "Total Items" },
+        { "key": "price", "label": "Total Price (Rs.)" }
+    ],
+    "field_Set_Daily_Sales": [
+        "no of total orders",
+        "no of total items selled",
+        "total amount (Rs.)"
     ]
 }

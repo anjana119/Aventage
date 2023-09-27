@@ -6,10 +6,10 @@
       </template>
       <template #cell(action)="data">
         <b-button variant="outline-warning" size="sm" :id="'update_' + data.item.title" @click="handleUpdateTableData(data.item)">
-          <b-icon icon="pencil-square" class="pt-1"></b-icon>
+          <b-icon icon="plus-circle-fill" class="mt-1"></b-icon>
         </b-button>
         <b-button variant="outline-danger" size="sm" :id="'delete_' + data.item.title" @click="handleActionEvents(data.item)">
-          <b-icon icon="trash" class="pt-1"></b-icon>
+          <b-icon icon="trash" class="mt-1"></b-icon>
         </b-button>
       </template>
     </b-table>
@@ -17,12 +17,17 @@
 </template>
 
 <script>
+import data from '../data/Config.json'
 export default {
   name: 'Table Component',
   props: {
     itemDetails: {
       type: Object,
       default: null
+    },
+    clearTable: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -30,13 +35,7 @@ export default {
       mainProps: { width: 45, height: 45, class: 'm1' },
       condition: false,
       items: [],
-      fields: [
-        'avatar',
-        'title',
-        'qty',
-        'total',
-        'action'
-      ]
+      fields: data.table_Comp_Table_Fields
     }
   },
   watch: {
@@ -44,6 +43,15 @@ export default {
       handler (val) {
         if (val instanceof Object) {
           this.handleTableData(val)
+        }
+      },
+      immediate: true,
+      deep: true
+    },
+    clearTable: {
+      handler (val) {
+        if (val === true) {
+          this.items = []
         }
       },
       immediate: true,
