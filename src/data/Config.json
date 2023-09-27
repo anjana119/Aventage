@@ -1,0 +1,46 @@
+{
+    "duratio_Selection": [
+        {
+            "id": 1,
+            "text": "Daily",
+            "condition": "filterDuration"
+        },
+        {
+            "id": 2,
+            "text": "Weekly",
+            "condition": "filterDuration"
+        },
+        {
+            "id": 3,
+            "text": "Monthly",
+            "condition": "filterDuration"
+        }
+    ],
+    "pagination_selection": [
+        {
+            "id": 1,
+            "text": 2,
+            "condition": "filterPagination"
+        },
+        {
+            "id": 2,
+            "text": 5,
+            "condition": "filterPagination"
+        },
+        {
+            "id": 3,
+            "text": 10,
+            "condition": "filterPagination"
+        },
+        {
+            "id": 4,
+            "text": 25,
+            "condition": "filterPagination"
+        },
+        {
+            "id": 5,
+            "text": 50,
+            "condition": "filterPagination"
+        }
+    ]
+}

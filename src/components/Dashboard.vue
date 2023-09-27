@@ -1,60 +1,60 @@
 <template>
+  <div>
     <div>
-      <div>
-        <b-dropdown id="dropdown-1" :text="selectedText" class="m-md-2" variant="warning">
-          <b-dropdown-item
-            :active="selectedText === 'Daily' ? true : false"
-            @click="handleGetChangeEvent('Daily')"
-          >
-            Daily
-          </b-dropdown-item>
-          <b-dropdown-item
-            :active="selectedText === 'Weekly' ? true : false"
-            @click="handleGetChangeEvent('Weekly')"
-          >
-            Weekly
-          </b-dropdown-item>
-          <b-dropdown-item
-            :active="selectedText === 'Monthly' ? true : false"
-            @click="handleGetChangeEvent('Monthly')"
-          >
-            Monthly
-          </b-dropdown-item>
-        </b-dropdown>
-      </div>
-      <div class="mt-4 mb-5">
-        <h3>
-          Sales Report
-        </h3>
-        <DailySalesReport />
-      </div>
-      <hr />
-      <div class="mt-5 mb-5">
-        <h3>
-          Famous Dishes
-        </h3>
-        <OtherStaticsTables />
-      </div>
+      <DropDownComponents
+        :selectedText="selectedText"
+        :selectedPerPage="selectedPerPage"
+        :itemsForSelectDuration="itemsForSelectDuration"
+        :itemsForPagination="itemsForPagination"
+        @handleEmitChangeEvent="handleEmitChangeEvent"
+      />
     </div>
+    <div class="mt-4 mb-5">
+      <h3>
+        Sales Report
+      </h3>
+      <DailySalesReport :selectedPerPage="selectedPerPage" />
+    </div>
+    <hr />
+    <div class="mt-5 mb-5">
+      <h3>
+        Famous Dishes
+      </h3>
+      <OtherStaticsTables />
+    </div>
+  </div>
 </template>
 
 <script>
 import DailySalesReport from './Reports/DailySalesReport.vue'
 import OtherStaticsTables from './Reports/OtherStaticsTables.vue'
+import DropDownComponents from './DropDownComponents.vue'
+import data from '../data/Config.json'
 export default {
   name: 'Dashboard',
   components: {
     DailySalesReport,
-    OtherStaticsTables
+    OtherStaticsTables,
+    DropDownComponents
   },
   data () {
     return {
-      selectedText: 'Daily'
+      selectedText: 'Daily',
+      selectedPerPage: 2,
+      itemsForSelectDuration: data.duratio_Selection,
+      itemsForPagination: data.pagination_selection
     }
   },
   methods: {
-    handleGetChangeEvent (condition) {
-      condition === 'Daily' ? this.selectedText = 'Daily' : condition === 'Weekly' ? this.selectedText = 'Weekly' : this.selectedText = 'Monthly'
+    handleEmitChangeEvent (txt, condition) {
+      if (condition === 'filterDuration') {
+        this.selectedText = txt
+        if (txt !== 'Daily') {
+          alert(txt)
+        }
+      } else {
+        this.selectedPerPage = txt
+      }
     }
   }
 }
